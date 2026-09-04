@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="CoreLink.Core/CoreLink.Core.csproj" />
+  <Project Path="CoreLink.Simulator/CoreLink.Simulator.csproj" />
+  <Project Path="CoreLink.Winform/CoreLink.Winform.csproj" />
+</Solution>
