@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CoreLink.Core.Transport.Common;
 
-namespace CoreLink.Core.Transport
+namespace CoreLink.Core.Transport.Events
 {
     /// <summary>
     /// 传输状态变化事件参数。

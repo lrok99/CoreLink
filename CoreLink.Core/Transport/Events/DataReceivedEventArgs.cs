@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CoreLink.Core.Transport
+namespace CoreLink.Core.Transport.Events
 {
     /// <summary>
     /// 接收到的原始字节流。注意：一次回调不保证是完整帧，粘包/拆包由协议层处理。

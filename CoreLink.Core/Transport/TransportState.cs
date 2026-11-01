@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CoreLink.Core.Transport.Common
+namespace CoreLink.Core.Transport
 {
     /// <summary>
     /// 传输状态枚举。

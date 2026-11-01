@@ -1,4 +1,4 @@
-﻿using CoreLink.Core.Transport.Common;
+﻿using CoreLink.Core.Transport.Events;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +14,7 @@ namespace CoreLink.Core.Transport
         /// <summary>收到原始字节流时触发。注意：一次事件不等于一个完整数据包。</summary>
         event EventHandler<DataReceivedEventArgs>? DataReceived;
         /// <summary>传输层发生错误时触发（如拔线、超时、硬件异常）</summary>
-        event EventHandler<TransportErrorEventArgs>? ErrorOccurred;
+        event EventHandler<Events.ErrorEventArgs>? ErrorOccurred;
         /// <summary>状态变化时触发（打开、关闭、异常断开）</summary>
         event EventHandler<TransportStateChangedEventArgs>? StateChanged;
 

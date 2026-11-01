@@ -1,9 +1,9 @@
-﻿using CoreLink.Core.Transport.Common;
-using System.IO.Ports;
+﻿using System.IO.Ports;
 using System.Threading.Channels;
 using System.Buffers;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using CoreLink.Core.Transport.Events;
 
 namespace CoreLink.Core.Transport
 {
@@ -44,9 +44,9 @@ namespace CoreLink.Core.Transport
             }
         }
 
-        public event EventHandler<DataReceivedEventArgs>? DataReceived;
-        public event EventHandler<TransportErrorEventArgs>? ErrorOccurred;
-        public event EventHandler<TransportStateChangedEventArgs>? StateChanged;
+        public event EventHandler<CoreLink.Core.Transport.Events.DataReceivedEventArgs>? DataReceived;
+        public event EventHandler<CoreLink.Core.Transport.Events.ErrorEventArgs>? ErrorOccurred;
+        public event EventHandler<CoreLink.Core.Transport.Events.TransportStateChangedEventArgs>? StateChanged;
 
         public SerialTransport(string portName,int baudRate,Parity parity,int dataBits, StopBits stopBits)
         {
@@ -449,7 +449,7 @@ namespace CoreLink.Core.Transport
                     {
                         try
                         {
-                            ((EventHandler<DataReceivedEventArgs>)handler).Invoke(this, new DataReceivedEventArgs { Data = data, SourceName = Name, Timestamp = DateTime.UtcNow });
+                            ((EventHandler<CoreLink.Core.Transport.Events.DataReceivedEventArgs>)handler).Invoke(this, new CoreLink.Core.Transport.Events.DataReceivedEventArgs { Data = data, SourceName = Name, Timestamp = DateTime.UtcNow });
                         }
                         catch (Exception ex)
                         {
@@ -483,7 +483,7 @@ namespace CoreLink.Core.Transport
             }
             try
             {
-                ErrorOccurred?.Invoke(this, new TransportErrorEventArgs { Exception = ex, SourceName = Name, IsFatal = isFatal });
+                ErrorOccurred?.Invoke(this, new Events.ErrorEventArgs { Exception = ex, SourceName = Name, IsFatal = isFatal });
             }catch(Exception e)
             {
                 Trace.WriteLine($"ErrorOccurred subscriber error: {e}");

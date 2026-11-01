@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CoreLink.Core\CoreLink.Core.csproj" />
+    <ProjectReference Include="..\CoreLink.Communication\CoreLink.Communication.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

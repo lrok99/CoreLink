@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CoreLink.Core.Transport
+namespace CoreLink.Core.Transport.Events
 {
-    public class TransportErrorEventArgs:EventArgs
+    public class ErrorEventArgs:EventArgs
     {
         public required Exception Exception { get; init; }
         public required string SourceName { get; init; }
