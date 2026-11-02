@@ -12,6 +12,6 @@ namespace CoreLink.Core.Transport.Events
         public required TransportState OldState { get; init; }
         public required TransportState NewState { get; init; }
         public required string SourceName { get; init; }
-        public string Reason { get; set; }
+        public string Reason { get; set; } = string.Empty;
     }
 }
